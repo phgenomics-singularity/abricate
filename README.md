@@ -68,11 +68,11 @@ singularity pull --name mlst shub://phgenomics-singularityAbricate@VERSION.NUMBE
 
 Now, when you login again, you should be able to just type:
 
-    ```bash
+```bash
 
     abricate --help
 
-    ```
+```
 
 ## Updating the DB
 

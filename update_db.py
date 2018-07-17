@@ -35,7 +35,7 @@ def git(cmd, msg=None):
     else:
         cmd_str += [cmd]
     log.debug(cmd_str)
-    # p = subprocess.run(cmd_str, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    p = subprocess.run(cmd_str, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     # log.critical(p.returncode)
 
 def get_today():

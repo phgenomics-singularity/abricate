@@ -16,19 +16,21 @@ The following steps are needed to use the image:
 
 1. Pull the image:
 
-```bash
-singularity pull --name TMP_DIRECTORY shub://phgenomics-singularity/Abricate@latest
+    ```bash
 
+    singularity pull --name TMP_DIRECTORY shub://phgenomics-singularity/Abricate@latest
 
-This will command will create a file `Abricate.simg`, which is executable.
+    ```
+
+    This will command will create a file `Abricate.simg`, which is executable.
 
 2. Use the image:
 
-``` bash
+    ``` bash
 
-./Abricate.simg --help
+    ./Abricate.simg --help
 
-```
+    ```
 
 ### A particular version
 

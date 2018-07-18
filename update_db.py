@@ -64,16 +64,16 @@ def update_db(version, today):
     The function that does it all
     '''
     new_dir = os.path.abspath(os.path.join(f'v{version}', f'DB{today}'))
-    # if os.path.exists(new_dir):
-    #     log.critical('Version and date of DB already exist. Nothing to do.')
-    #     return
-    # os.makedirs(new_dir)
-    # new_singularity=os.path.join(new_dir, f'Singularity.v{version}_DB{today}')
-    # recipe_lines = []
-    # with fileinput.FileInput('SingRecipeTemplate') as template:
-    #     for line in template:
-    #         recipe_lines.append(process_line(line, "{{VERSION}}", version))
-    # save_new_file(new_singularity, recipe_lines)
+    if os.path.exists(new_dir):
+        log.critical('Version and date of DB already exist. Nothing to do.')
+        return
+    os.makedirs(new_dir)
+    new_singularity=os.path.join(new_dir, f'Singularity.v{version}_DB{today}')
+    recipe_lines = []
+    with fileinput.FileInput('SingRecipeTemplate') as template:
+        for line in template:
+            recipe_lines.append(process_line(line, "{{VERSION}}", version))
+    save_new_file(new_singularity, recipe_lines)
     git('commit', msg=f"DB update on {today} for version {version}")
     git('push')
 
